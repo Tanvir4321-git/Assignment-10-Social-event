@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../assets/logo.jpg'
 import { Link, NavLink } from 'react-router';
 import defaultProfile from '../assets/defaultProfile.png'
-
+import { motion } from "framer-motion";
 const Navbar = () => {
 
   const links = <>
@@ -57,7 +57,17 @@ const Navbar = () => {
             </details>
             
 
-            <button className='bg-[#00d46f] py-2 px-5 hover:bg-[#8103f7] hover:border hover:border-green-600 rounded-[5px] text-white font-semibold '>Log out</button>
+            <motion.button
+            whileTap={{ scale: 0.9, y: 2 }}
+  transition={{ type: "spring", stiffness: 400, damping: 15 }}
+ 
+            className='bg-[#00d46f] text-white py-2 px-5 cursor-pointer  hover:border-green-600 rounded-[5px]  font-semibold '>Log out</motion.button>
+
+            <motion.button
+            whileTap={{ scale: 0.9, y: 2 }}
+  transition={{ type: "spring", stiffness: 400, damping: 15 }}
+ 
+            className='bg-[#00d46f] text-white py-2 px-5 cursor-pointer  hover:border-green-600 rounded-[5px]  font-semibold '><Link to='/signin'>Log in</Link></motion.button>
           </div>
         </div>
       </div>

@@ -15,6 +15,7 @@ import g4 from '../assets/g4.jpg'
 import g5 from '../assets/g5.jpg'
 import g6 from '../assets/g6.jpg'
 import { motion } from "framer-motion";
+import Newsletter from '../Components/Newsletter';
 
 
 
@@ -76,9 +77,12 @@ const Home = () => {
                 <p className="max-w-2xl mx-auto mb-5 text-gray-200">
                   {slide.desc}
                 </p>
-                <button className="bg-[#00d46f]  text-white font-semibold px-5 py-2 rounded-xl">
-                 Click here for Details
-                </button>
+                  <motion.button
+                           whileTap={{ scale: 0.9, y: 2 }}
+                 transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                
+                           className='bg-[#00d46f] text-white py-2 px-5 cursor-pointer  hover:border-green-600 rounded-[5px]  font-semibold '> Click here for Details</motion.button>
+                
               </div>
             </div>
           </SwiperSlide>
@@ -144,6 +148,8 @@ const Home = () => {
       </div>
      </motion.div>
 
+     {/* Newsletter */}
+<Newsletter></Newsletter>
     </div>
   );
 };

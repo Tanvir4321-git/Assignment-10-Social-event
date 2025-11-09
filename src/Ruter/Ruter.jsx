@@ -8,6 +8,8 @@ import CreateEvent from "../Components/AllEvent/CreateEvent";
 import JoinEvents from "../Components/AllEvent/JoinEvents";
 import ManageEvents from "../Components/AllEvent/ManageEvents";
 import UpcomingEvents from "../Pages/UpcomingEvents";
+import Register from "../Pages/Register";
+import Login from "../Pages/Login";
 
 
 export const router = createBrowserRouter([
@@ -24,6 +26,14 @@ export const router = createBrowserRouter([
       {
         path: '/upcoming-events',
         Component: UpcomingEvents
+      },
+      {
+      path: '/signup',
+      Component: Register
+      },
+      {
+          path:'/signin',
+          Component: Login
       },
       {
         path: '/createevent',
