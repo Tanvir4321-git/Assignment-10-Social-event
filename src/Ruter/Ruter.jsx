@@ -11,6 +11,8 @@ import UpcomingEvents from "../Pages/UpcomingEvents";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
+import Loading from "../Components/Loading";
+import ViewEvent from "../Components/ViewEvent";
 
 
 export const router = createBrowserRouter([
@@ -26,7 +28,9 @@ export const router = createBrowserRouter([
 
       {
         path: '/upcoming-events',
-        Component: UpcomingEvents
+        loader: () => fetch('http://localhost:3000/upcomingEvent'),
+        Component: UpcomingEvents,
+        hydrateFallbackElement: <Loading></Loading>
       },
       {
         path: '/signup',
@@ -43,7 +47,14 @@ export const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
+        path: '/viewEvent/:id',
+        loader: ({ params }) => fetch(`http://localhost:3000/view-event/${params.id}`),
+        Component: ViewEvent,
+        hydrateFallbackElement: <Loading></Loading>
+      },
+      {
         path: '/joinevent',
+        loader: () => fetch('http://localhost:3000/alljoinedData'),
         element: <PrivateRoute>
           <ManageEvents></ManageEvents>
         </PrivateRoute>

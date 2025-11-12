@@ -21,7 +21,7 @@ const Authprovider = ({ children }) => {
   //sign in with goggle
   const goggoleSignin = () => {
     setloading(true)
-    signInWithPopup(auth, goggleProvider)
+    return signInWithPopup(auth, goggleProvider)
   }
   //sign out 
   const logOut = () => {
