@@ -10,6 +10,7 @@ import ManageEvents from "../Components/AllEvent/ManageEvents";
 import UpcomingEvents from "../Pages/UpcomingEvents";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
+import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -28,24 +29,30 @@ export const router = createBrowserRouter([
         Component: UpcomingEvents
       },
       {
-      path: '/signup',
-      Component: Register
+        path: '/signup',
+        Component: Register
       },
       {
-          path:'/signin',
-          Component: Login
+        path: '/signin',
+        Component: Login
       },
       {
         path: '/createevent',
-        Component: CreateEvent
+        element: <PrivateRoute>
+          <CreateEvent></CreateEvent>
+        </PrivateRoute>
       },
       {
         path: '/joinevent',
-        Component: JoinEvents
+        element: <PrivateRoute>
+          <ManageEvents></ManageEvents>
+        </PrivateRoute>
       },
       {
         path: '/manageevent',
-        Component: ManageEvents
+        element: <PrivateRoute>
+          <ManageEvents></ManageEvents>
+        </PrivateRoute>
       }
     ]
 

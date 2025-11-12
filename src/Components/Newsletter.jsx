@@ -40,7 +40,7 @@ const handleSubmit=(e)=>{
 </form>
              </div>
         </div>
-</motion.div>
+</motion.div>   
 
     );
 };
