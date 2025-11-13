@@ -37,7 +37,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow">
               {
                 links
               }
@@ -63,8 +63,8 @@ const Navbar = () => {
                 <summary title={user.displayName} className="btn  m-1"><img className='w-8 cursor-pointer rounded-[50%] h-8 ' src={user.photoURL} alt="" /></summary>
                 <ul className="menu z-[10] dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                   <li><Link to='/createevent'>Create Event </Link></li>
-                  <li><Link to='/joinevent'>Manage Events </Link></li>
-                  <li><Link to='/manageevent'>Joined Events </Link></li>
+                  <li><Link to='/manageevent'>Manage Events </Link></li>
+                  <li><Link to='/joinevent'>Joined Events </Link></li>
 
                 </ul>
               </details>

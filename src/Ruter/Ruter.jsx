@@ -13,6 +13,7 @@ import Login from "../Pages/Login";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import Loading from "../Components/Loading";
 import ViewEvent from "../Components/ViewEvent";
+import UpdateEvent from "../Components/UpdateEvent";
 
 
 export const router = createBrowserRouter([
@@ -56,7 +57,14 @@ export const router = createBrowserRouter([
         path: '/joinevent',
         loader: () => fetch('http://localhost:3000/alljoinedData'),
         element: <PrivateRoute>
-          <ManageEvents></ManageEvents>
+          <JoinEvents></JoinEvents>
+        </PrivateRoute>
+      },
+      {
+        path: '/updateEvent/:id',
+        loader: ({ params }) => fetch(`http://localhost:3000/getUpdate/${params.id}`),
+        element: <PrivateRoute>
+          <UpdateEvent></UpdateEvent>
         </PrivateRoute>
       },
       {

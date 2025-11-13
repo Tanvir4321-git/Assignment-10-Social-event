@@ -39,7 +39,7 @@ const Home = () => {
       id: 3,
       title: "Road Cleaning Drive",
       desc: "Together we clean our streets for a better environment. Join our volunteers to promote civic responsibility. Let’s make our city shine — one road at a time!",
-       img: slider3
+      img: slider3
     }
   ];
 
@@ -48,7 +48,7 @@ const Home = () => {
   return (
     <div>
 
-    <Swiper
+      <Swiper
         modules={[Autoplay, Pagination]}
         spaceBetween={0}
         slidesPerView={1}
@@ -77,12 +77,12 @@ const Home = () => {
                 <p className="max-w-2xl mx-auto mb-5 text-gray-200">
                   {slide.desc}
                 </p>
-                  <motion.button
-                           whileTap={{ scale: 0.9, y: 2 }}
-                 transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                
-                           className='bg-[#00d46f] text-white py-2 px-5 cursor-pointer  hover:border-green-600 rounded-[5px]  font-semibold '> Click here for Details</motion.button>
-                
+                <motion.button
+                  whileTap={{ scale: 0.9, y: 2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
+
+                  className='bg-[#00d46f] text-white py-2 px-5 cursor-pointer  hover:border-green-600 rounded-[5px]  font-semibold '> Click here for Details</motion.button>
+
               </div>
             </div>
           </SwiperSlide>
@@ -91,65 +91,65 @@ const Home = () => {
       <Features></Features>
 
       {/* //Gallery */}
-     <motion.div
-    className="rounded-xl shadow-lg"
-  initial={{ opacity: 0, scale: 0.8 }}
-  whileInView={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 0.6 }}
-     
-     >
-       <div className='w-11/12 mx-auto'>
-         <h1 className='font-bold text-3xl text-center my-8'>Our Event Gallery</h1>
-         <div className='grid grid-cols-3  gap-4'>
-<motion.img
-  whileHover={{ scale: 1.08, rotate: 1 }}
-  transition={{ type: "spring", stiffness: 200 }}
-  className="h-[300px] w-full rounded-[10px] shadow-lg"
-  src={g1}
-  alt=""
-/>
-<motion.img
-  whileHover={{ scale: 1.08, rotate: -1 }}
-  transition={{ type: "spring", stiffness: 200 }}
-  className="h-[300px] w-full rounded-[10px] shadow-lg"
-  src={g2}
-  alt=""
-/>
-<motion.img
-  whileHover={{ scale: 1.08, rotate: 1 }}
-  transition={{ type: "spring", stiffness: 200 }}
-  className="h-[300px] w-full rounded-[10px] shadow-lg"
-  src={g3}
-  alt=""
-/>
-<motion.img
-  whileHover={{ scale: 1.08, rotate: -1 }}
-  transition={{ type: "spring", stiffness: 200 }}
-  className="h-[300px] w-full rounded-[10px] shadow-lg"
-  src={g4}
-  alt=""
-/>
-<motion.img
-  whileHover={{ scale: 1.08, rotate: 1 }}
-  transition={{ type: "spring", stiffness: 200 }}
-  className="h-[300px] w-full rounded-[10px] shadow-lg"
-  src={g5}
-  alt=""
-/>
-<motion.img
-  whileHover={{ scale: 1.08, rotate: -1 }}
-  transition={{ type: "spring", stiffness: 200 }}
-  className="h-[300px] w-full rounded-[10px] shadow-lg"
-  src={g6}
-  alt=""
-/>
+      <motion.div
+        className="rounded-xl shadow-lg"
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
 
-         </div>
-      </div>
-     </motion.div>
+      >
+        <div className='w-11/12 mx-auto'>
+          <h1 className='font-bold text-3xl text-center my-8'>Our Event Gallery</h1>
+          <div className='grid grid-cols-1 md:grid-cols-3  gap-4'>
+            <motion.img
+              whileHover={{ scale: 1.08, rotate: 1 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="h-[300px] w-full rounded-[10px] shadow-lg"
+              src={g1}
+              alt=""
+            />
+            <motion.img
+              whileHover={{ scale: 1.08, rotate: -1 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="h-[300px] w-full rounded-[10px] shadow-lg"
+              src={g2}
+              alt=""
+            />
+            <motion.img
+              whileHover={{ scale: 1.08, rotate: 1 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="h-[300px] w-full rounded-[10px] shadow-lg"
+              src={g3}
+              alt=""
+            />
+            <motion.img
+              whileHover={{ scale: 1.08, rotate: -1 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="h-[300px] w-full rounded-[10px] shadow-lg"
+              src={g4}
+              alt=""
+            />
+            <motion.img
+              whileHover={{ scale: 1.08, rotate: 1 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="h-[300px] w-full rounded-[10px] shadow-lg"
+              src={g5}
+              alt=""
+            />
+            <motion.img
+              whileHover={{ scale: 1.08, rotate: -1 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="h-[300px] w-full rounded-[10px] shadow-lg"
+              src={g6}
+              alt=""
+            />
 
-     {/* Newsletter */}
-<Newsletter></Newsletter>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Newsletter */}
+      <Newsletter></Newsletter>
     </div>
   );
 };

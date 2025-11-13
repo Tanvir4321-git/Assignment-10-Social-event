@@ -6,7 +6,7 @@ import { auth } from '../FireBaseConfiq';
 const goggleProvider = new GoogleAuthProvider();
 const Authprovider = ({ children }) => {
   const [user, setuser] = useState(null)
-  console.log(user)
+
   const [loading, setloading] = useState(true)
   //Register
   const Register = (email, password) => {

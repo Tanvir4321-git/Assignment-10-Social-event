@@ -6,7 +6,7 @@ import useAxiosHook from './Axios/useAxiosHook';
 import { toast } from 'react-toastify';
 const ViewEvent = () => {
     const { photo, title, description,
-        date } = useLoaderData()
+        date, location, eventType } = useLoaderData()
     const { user } = use(Authcontext)
     const axiosHook = useAxiosHook()
     const navigate = useNavigate()
@@ -18,7 +18,7 @@ const ViewEvent = () => {
         const joinedData = {
             title,
             email: user.email,
-            date
+            date, location, eventType, photo
         }
 
         axiosHook.post('/joinedEvent', joinedData)
