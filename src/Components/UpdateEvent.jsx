@@ -9,11 +9,12 @@ import { Authcontext } from './Context/Authcontext';
 
 const UpdateEvent = () => {
     const updateData = useLoaderData()
+
     const [eventDate, setEventDate] = useState(updateData?.date);
     const navigate = useNavigate()
     const axiosHook = useAxiosHook()
 
-    console.log(updateData)
+
     const { user } = use(Authcontext)
     const handleUpdate = (e) => {
 

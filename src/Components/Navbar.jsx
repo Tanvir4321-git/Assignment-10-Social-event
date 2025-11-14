@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import logo from '../assets/logo.jpg'
 import { Link, NavLink } from 'react-router';
 import defaultProfile from '../assets/defaultProfile.png'
@@ -7,7 +7,7 @@ import { Authcontext } from './Context/Authcontext';
 import { toast } from 'react-toastify';
 const Navbar = () => {
   const { user, logOut } = use(Authcontext)
-
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const links = <>
 
     <li><NavLink to='/'>Home</NavLink></li>
@@ -25,6 +25,27 @@ const Navbar = () => {
         toast(error.message)
       })
   }
+
+
+
+
+
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+
+
+
+
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
+
+
+
 
   return (
 
@@ -81,6 +102,15 @@ const Navbar = () => {
                     className='bg-[#00d46f] text-white py-2 px-5 cursor-pointer  hover:border-green-600 rounded-[5px]  font-semibold '><Link to='/signin'>Log in</Link></motion.button>
             }
 
+            <div>
+              Dark Mode
+              <input
+                onChange={(e) => handleTheme(e.target.checked)}
+                type="checkbox"
+                defaultChecked={localStorage.getItem('theme') === "dark"}
+                className="toggle" />
+
+            </div>
 
 
 

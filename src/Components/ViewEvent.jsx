@@ -7,11 +7,12 @@ import { toast } from 'react-toastify';
 const ViewEvent = () => {
     const { photo, title, description,
         date, location, eventType } = useLoaderData()
+
     const { user } = use(Authcontext)
     const axiosHook = useAxiosHook()
     const navigate = useNavigate()
     const handlejoin = () => {
-        console.log('clciked')
+
         if (!user) {
             return navigate('/signin')
         }
@@ -23,9 +24,14 @@ const ViewEvent = () => {
 
         axiosHook.post('/joinedEvent', joinedData)
             .then((data) => {
-                console.log('joiend ', data.data)
+
 
                 toast('Successfully join Event')
+            })
+            .catch(err => {
+                if (err.response?.status === 409) {
+                    toast('You already joined this event')
+                }
             })
 
     }

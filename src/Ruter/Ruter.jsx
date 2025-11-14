@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
 
       {
         path: '/upcoming-events',
-        loader: () => fetch('http://localhost:3000/upcomingEvent'),
+        loader: () => fetch('https://assignment-10-server-three-iota.vercel.app/upcomingEvent'),
         Component: UpcomingEvents,
         hydrateFallbackElement: <Loading></Loading>
       },
@@ -49,20 +49,20 @@ export const router = createBrowserRouter([
       },
       {
         path: '/viewEvent/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/view-event/${params.id}`),
+        loader: ({ params }) => fetch(`https://assignment-10-server-three-iota.vercel.app/view-event/${params.id}`),
         Component: ViewEvent,
         hydrateFallbackElement: <Loading></Loading>
       },
       {
         path: '/joinevent',
-        loader: () => fetch('http://localhost:3000/alljoinedData'),
+
         element: <PrivateRoute>
           <JoinEvents></JoinEvents>
         </PrivateRoute>
       },
       {
         path: '/updateEvent/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/getUpdate/${params.id}`),
+        loader: ({ params }) => fetch(`https://assignment-10-server-three-iota.vercel.app/getUpdate/${params.id}`),
         element: <PrivateRoute>
           <UpdateEvent></UpdateEvent>
         </PrivateRoute>
