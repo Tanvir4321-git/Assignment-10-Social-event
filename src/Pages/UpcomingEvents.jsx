@@ -21,33 +21,67 @@ const UpcomingEvents = () => {
 
     }
 
+
+    const handleFilter = (e) => {
+        e.preventDefault()
+        const type = e.target.value;
+
+        if (type === '') {
+            setsearch(eventsData)
+        }
+        else {
+            axiosHook.get(`/filter?type=${type}`)
+                .then(data => {
+                    setsearch(data.data)
+
+                });
+
+
+        }
+
+    }
+
     return (
         <div className='w-11/12 mx-auto'>
             <div className='flex items-center justify-between'>
                 <h1 className='text-2xl text-center my-10'>Upcoming ALl Events </h1>
-                <form onSubmit={handleSearch} className='flex' >
+                <div className='flex items-center gap-4'>
 
-                    <label className="input">
-                        <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <g
-                                strokeLinejoin="round"
-                                strokeLinecap="round"
-                                strokeWidth="2.5"
-                                fill="none"
-                                stroke="currentColor"
-                            >
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="m21 21-4.3-4.3"></path>
-                            </g>
-                        </svg>
-                        <input type="search" name='search' placeholder="Search" />
-                    </label>
-                    <motion.button
-                        whileTap={{ scale: 0.9, y: 2 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    <form onSubmit={handleSearch} className='flex' >
 
-                        className='bg-[#00d46f] text-white py-2 px-5 cursor-pointer  hover:border-green-600 rounded-[5px]  font-semibold ' >Search</motion.button>
-                </form>
+                        <label className="input">
+                            <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <g
+                                    strokeLinejoin="round"
+                                    strokeLinecap="round"
+                                    strokeWidth="2.5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                >
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.3-4.3"></path>
+                                </g>
+                            </svg>
+                            <input type="search" name='search' placeholder="Search" />
+                        </label>
+                        <motion.button
+                            whileTap={{ scale: 0.9, y: 2 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 15 }}
+
+                            className='bg-[#00d46f] text-white py-2 px-5 cursor-pointer  hover:border-green-600 rounded-[5px]  font-semibold ' >Search</motion.button>
+
+
+                    </form>
+                    <select onChange={handleFilter} className='w-[200px] border-2 border-[#d1d1d1] ml-4' name="eventType" required>
+                        <option value="">Filter</option>
+                        <option value="Cleanup">Cleanup</option>
+                        <option value="Plantation">Plantation</option>
+                        <option value="Donation">Donation</option>
+                        <option value="Awareness Campaign">Awareness Campaign</option>
+                        <option value="Blood Donation">Blood Donation</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2  my-10 gap-5'>
                 {
