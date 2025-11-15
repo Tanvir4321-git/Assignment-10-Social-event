@@ -77,7 +77,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <div className='grid grid-cols-1 md:grid-cols-2'>
+          <div >
 
             <div className='flex items-center gap-2'>
 
@@ -88,6 +88,14 @@ const Navbar = () => {
                     <li><Link to='/createevent'>Create Event </Link></li>
                     <li><Link to='/manageevent'>Manage Events </Link></li>
                     <li><Link to='/joinevent'>Joined Events </Link></li>
+                    <div className='flex ml-[14px]'>
+                      Dark Mode
+                      <input
+                        onChange={(e) => handleTheme(e.target.checked)}
+                        type="checkbox"
+                        defaultChecked={localStorage.getItem('theme') === "dark"}
+                        className="toggle" />
+                    </div>
 
                   </ul>
                 </details>
@@ -106,17 +114,16 @@ const Navbar = () => {
 
 
             </div>
-            <div>
-              Dark Mode
-              <input
-                onChange={(e) => handleTheme(e.target.checked)}
-                type="checkbox"
-                defaultChecked={localStorage.getItem('theme') === "dark"}
-                className="toggle" />
 
-            </div>
           </div>
         </div>
+
+      </div>
+      <div className='flex justify-end w-11/12 mx-auto'>
+        <div>
+
+        </div>
+
       </div>
     </div>
 

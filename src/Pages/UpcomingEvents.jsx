@@ -43,9 +43,9 @@ const UpcomingEvents = () => {
 
     return (
         <div className='w-11/12 mx-auto'>
-            <div className='flex items-center justify-between'>
+            <div className='flex items-center flex-col md:flex-row justify-between'>
                 <h1 className='text-2xl text-center my-10'>Upcoming ALl Events </h1>
-                <div className='flex items-center gap-4'>
+                <div className='flex items-center flex-col md:flex-row gap-4'>
 
                     <form onSubmit={handleSearch} className='flex' >
 
