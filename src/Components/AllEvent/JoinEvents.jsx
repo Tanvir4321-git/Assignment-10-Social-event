@@ -25,7 +25,7 @@ const JoinEvents = () => {
     }, [user, useAxiosHook])
 
     return (
-        <div className='w-11/12 mx-auto'>
+        <div className='w-11/12 mx-auto min-h-screen'>
             {
                 show ? <h2 className='font-semibold text-2xl text-center my-8'>Joined Event  </h2> : ''
             }
