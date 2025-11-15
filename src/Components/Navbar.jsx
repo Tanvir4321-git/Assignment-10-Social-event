@@ -77,31 +77,35 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <div className='flex items-center gap-2'>
+          <div className='grid grid-cols-1 md:grid-cols-2'>
 
-            {
-              user ? <> <details className="dropdown ">
-                <summary title={user.displayName} className="btn  m-1"><img className='w-8 cursor-pointer rounded-[50%] h-8 ' src={user.photoURL} alt="" /></summary>
-                <ul className="menu z-[10] dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                  <li><Link to='/createevent'>Create Event </Link></li>
-                  <li><Link to='/manageevent'>Manage Events </Link></li>
-                  <li><Link to='/joinevent'>Joined Events </Link></li>
+            <div className='flex items-center gap-2'>
 
-                </ul>
-              </details>
+              {
+                user ? <> <details className="dropdown ">
+                  <summary title={user.displayName} className="btn  m-1"><img className='w-8 cursor-pointer rounded-[50%] h-8 ' src={user.photoURL} alt="" /></summary>
+                  <ul className="menu z-[10] dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                    <li><Link to='/createevent'>Create Event </Link></li>
+                    <li><Link to='/manageevent'>Manage Events </Link></li>
+                    <li><Link to='/joinevent'>Joined Events </Link></li>
+
+                  </ul>
+                </details>
 
 
-                <motion.button
-                  whileTap={{ scale: 0.9, y: 2 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
-
-                  className='bg-[#00d46f] text-white py-2 px-5 cursor-pointer  hover:border-green-600 rounded-[5px]  font-semibold ' onClick={handlelogout}>Log out</motion.button> </> : <motion.button
+                  <motion.button
                     whileTap={{ scale: 0.9, y: 2 }}
                     transition={{ type: "spring", stiffness: 400, damping: 15 }}
 
-                    className='bg-[#00d46f] text-white py-2 px-5 cursor-pointer  hover:border-green-600 rounded-[5px]  font-semibold '><Link to='/signin'>Log in</Link></motion.button>
-            }
+                    className='bg-[#00d46f] text-white py-2 px-5 cursor-pointer  hover:border-green-600 rounded-[5px]  font-semibold ' onClick={handlelogout}>Log out</motion.button> </> : <motion.button
+                      whileTap={{ scale: 0.9, y: 2 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
 
+                      className='bg-[#00d46f] text-white py-2 px-5 cursor-pointer  hover:border-green-600 rounded-[5px]  font-semibold '><Link to='/signin'>Log in</Link></motion.button>
+              }
+
+
+            </div>
             <div>
               Dark Mode
               <input
@@ -111,9 +115,6 @@ const Navbar = () => {
                 className="toggle" />
 
             </div>
-
-
-
           </div>
         </div>
       </div>
