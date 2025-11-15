@@ -1,5 +1,5 @@
 import React, { use, useEffect, useState } from 'react';
-import logo from '../assets/logo.jpg'
+import logo from '../assets/wlogo.png'
 import { Link, NavLink } from 'react-router';
 import defaultProfile from '../assets/defaultProfile.png'
 import { motion } from "framer-motion";
