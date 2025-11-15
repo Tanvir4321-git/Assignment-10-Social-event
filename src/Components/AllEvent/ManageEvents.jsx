@@ -22,7 +22,7 @@ const ManageEvents = () => {
 
 
     return (
-        <div className='w-11/12 mx-auto my-14'>
+        <div className='w-11/12 mx-auto min-h-screen my-14'>
             <h2 className='font-semibold text-2xl text-center'>Manage Events </h2>
 
             <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2  my-10 gap-5'>
