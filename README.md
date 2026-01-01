@@ -1,5 +1,8 @@
+<p align="center">
+  <img src="Cover.png" alt="MERN Stack Developer Banner" width="100%">
+</p>
+
 Social Development Events Platform
-📌 About (Repository Description / Pinned Section)
 
 Social Development Events Platform is a clean and modern social event website that helps organizers share their programs easily and reach more people.
 It provides users with clear event details, such as date, time, venue, and category, in a simple interface.
