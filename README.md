@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Cover(2).png" alt="MERN Stack Developer Banner" width="100%">
+  <img src="banner.png" alt="MERN Stack Developer Banner" width="100%">
 </p>
 
  ### Social Development Events Platform
