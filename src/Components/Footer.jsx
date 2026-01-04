@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { use } from 'react';
 import { FaXTwitter } from 'react-icons/fa6';
 import { Link, NavLink } from 'react-router';
 import logo from '../assets/wlogo.png'
+import { Authcontext } from './Context/Authcontext';
 
 const Footer = () => {
+  const { user} = use(Authcontext)
   const links = <>
 
     <li><Link to='/'>Home</Link></li>
 
     <li><Link to='/upcoming-events'>Upcoming Events</Link></li>
+    <li><Link to='/about'>About</Link></li>
+    {
+      user &&   <li><Link to='/createevent'>Create Event</Link></li>
+    }
+  
 
   </>
 
@@ -25,10 +32,10 @@ const Footer = () => {
       </nav>
       <nav>
         <div className="grid grid-flow-col gap-4">
-          <a>
+          <a  href='https://x.com/' target="_blank">
             <FaXTwitter color='white' size={24} />
           </a>
-          <a>
+          <a href='https://www.youtube.com/ ' target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -40,7 +47,7 @@ const Footer = () => {
                 d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
             </svg>
           </a>
-          <a>
+          <a href='https://www.facebook.com/' target="_blank">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

@@ -1,0 +1,45 @@
+[
+  {
+    "id": 1,
+    "image": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800&q=80",
+    "title": "Clean Our Society",
+    "description": "Join our cleanliness movement make our neighborhoods pollution-free.",
+    "programType": "Community Cleanliness",
+    "audience": "General Public",
+    "focus": "Environmental Wellbeing",
+    "detailedDescription": "Our Clean Our Society initiative is a comprehensive cleanliness movement aimed at transforming our neighborhoods into pollution-free, healthy living spaces. We believe that a clean environment is the foundation of a healthy society. Through organized community drives, we engage citizens in cleaning streets, parks, public areas, and water bodies. Our volunteers work tirelessly to remove waste, plant trees, and create awareness about the importance of maintaining cleanliness. We also conduct educational workshops in schools and communities to instill the habit of cleanliness from a young age."
+   
+  },
+  {
+    "id": 2,
+    "image": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80",
+    "title": "Protect Our Environment",
+    "description": "Join our activities to protect the environment.",
+    "programType": "Environmental Awareness",
+    "audience": "Students & Volunteers",
+    "focus": "Climate & Nature Protection",
+    "detailedDescription": "Protect Our Environment is our flagship program dedicated to environmental conservation and climate action. We organize tree plantation drives, awareness campaigns, and educational sessions to combat climate change and preserve our natural resources. Our team works with schools, colleges, and local communities to create green spaces, protect biodiversity, and promote sustainable living practices. We believe that every small action counts in the fight against environmental degradation."
+   
+  },
+  {
+    "id": 3,
+    "image": "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80",
+    "title": "Work for Humanity",
+    "description": "Join our social service programs to help the underprivileged.",
+    "programType": "Social Service",
+    "audience": "Volunteers & Donors",
+    "focus": "Humanitarian Support",
+    "detailedDescription": "Work for Humanity is our social welfare program focused on supporting underprivileged communities through various humanitarian initiatives. We organize food distribution drives, provide educational support to children from low-income families, conduct charity events, and offer assistance during emergencies and disasters. Our volunteers work directly with communities in need, ensuring that basic necessities reach those who need them most. We believe in the power of compassion and collective action to create positive social change."
+  },
+  {
+    "id": 4,
+    "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
+    "title": "Health Awareness",
+    "description": "Join our health awareness programs to promote healthy living.",
+    "programType": "Health Awareness",
+    "audience": "Community Members",
+    "focus": "Public Health & Wellness",
+    "detailedDescription": "Our Health Awareness program is dedicated to promoting public health and wellness through education, prevention, and community engagement. We organize free medical camps, blood donation drives, health screening events, and awareness campaigns on various health topics including nutrition, mental health, disease prevention, and healthy lifestyle choices. Our team of medical professionals and volunteers work together to make healthcare information accessible to all, especially in underserved communities."
+  
+  }
+]

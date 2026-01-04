@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { use } from 'react';
 import { Link } from 'react-router';
 import { motion } from "framer-motion";
@@ -26,7 +27,7 @@ const ManageEventData = ({ jd }) => {
 
 
     return (
-        <div className=" w-full p-4 shadow-2xl rounded-[5px] bg-gray-300 flex  flex-col gap-3">
+        <div className=" w-full p-4 shadow-2xl rounded-[5px]  bg-gray-300 flex  flex-col gap-3">
             <img className='w-full  h-[200px] rounded-[5px]' src={photo} alt="" />
             <h3 className='font-semibold text-[18px]' >{title}</h3>
 

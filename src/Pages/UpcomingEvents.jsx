@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router';
 import UpcomingEventsData from '../Components/UpcomingEventsData';
 import { motion } from "framer-motion";
@@ -6,19 +7,25 @@ import useAxiosHook from '../Components/Axios/useAxiosHook';
 
 const UpcomingEvents = () => {
     const eventsData = useLoaderData()
-    const axiosHook = useAxiosHook()
+    
     const [search, setsearch] = useState(eventsData)
+    const axiosHook = useAxiosHook()
+   
+
+
 
     const handleSearch = (e) => {
         e.preventDefault()
-        const search = e.target.search.value
+        const searchValue = e.target.search.value
 
-        axiosHook.get(`/search?search=${search}`)
+        axiosHook.get(`/search?search=${searchValue}`)
             .then(data => {
-                setsearch(data.data)
+                setsearch(data.data || []) 
             })
-
-
+            .catch(error => {
+                console.error('Search Error:', error)
+                setsearch([]) 
+            })
     }
 
 
@@ -32,23 +39,41 @@ const UpcomingEvents = () => {
         else {
             axiosHook.get(`/filter?type=${type}`)
                 .then(data => {
-                    setsearch(data.data)
-
-                });
-
-
+                    setsearch(data.data || []) 
+                })
+                .catch(error => {
+                    console.error('Filter Error:', error)
+                    setsearch([])
+                })
         }
+    }
 
+    const handleSort = (e) => {
+        e.preventDefault()
+        const sortvalue = e.target.value;
+
+        if (sortvalue === '') {
+            setsearch(eventsData)
+        }
+        else {
+            axiosHook.get(`/sort?sortvalue=${sortvalue}`)
+                .then(data => {
+                    setsearch(data.data || [])
+                })
+                .catch(error => {
+                    console.error('Sort Error:', error)
+                    setsearch([]) 
+                })
+        }
     }
 
     return (
         <div className='w-11/12 mx-auto'>
             <div className='flex items-center flex-col md:flex-row justify-between'>
-                <h1 className='text-2xl text-center my-10'>Upcoming ALl Events </h1>
+                <h1 className='text-2xl text-center my-10'>Upcoming All Events </h1>
                 <div className='flex items-center flex-col md:flex-row gap-4'>
 
                     <form onSubmit={handleSearch} className='flex' >
-
                         <label className="input">
                             <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <g
@@ -67,11 +92,11 @@ const UpcomingEvents = () => {
                         <motion.button
                             whileTap={{ scale: 0.9, y: 2 }}
                             transition={{ type: "spring", stiffness: 400, damping: 15 }}
-
-                            className='bg-[#00d46f] text-white py-2 px-5 cursor-pointer  hover:border-green-600 rounded-[5px]  font-semibold ' >Search</motion.button>
-
-
+                            className='bg-[#00d46f] text-white py-2 px-5 cursor-pointer hover:border-green-600 rounded-[5px] font-semibold'>
+                            Search
+                        </motion.button>
                     </form>
+
                     <select onChange={handleFilter} className='w-[200px] border-2 border-[#d1d1d1] ml-4' name="eventType" required>
                         <option value="">Filter</option>
                         <option value="Cleanup">Cleanup</option>
@@ -81,14 +106,30 @@ const UpcomingEvents = () => {
                         <option value="Blood Donation">Blood Donation</option>
                         <option value="Others">Others</option>
                     </select>
+
+                    <div>
+                        <select onChange={handleSort} className="select bg-white">
+                            <option value="">Sort by Time</option>
+                            <option value="7days">This Week</option>
+                            <option value="30days">This Month</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2  my-10 gap-5'>
-                {
-                    search.map(data => <UpcomingEventsData key={data._id} data={data}></UpcomingEventsData>)
 
-                }
+            <div className='grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 my-10 gap-5'>
+                {search && search.length > 0 ? (
+                    search.map(data => <UpcomingEventsData key={data._id} data={data} />)
+                ) : (
+                    <div className="col-span-full text-center py-10">
+                        <p className="text-xl text-gray-500">No events found</p>
+                    </div>
+                )}
             </div>
+
+        
+
+            
         </div>
     );
 };

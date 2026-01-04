@@ -1,5 +1,5 @@
 import React, { use, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router';
+
 import { Authcontext } from '../Context/Authcontext';
 import useAxiosHook from '../Axios/useAxiosHook';
 import JoinEventData from './ManageEventData';
@@ -17,7 +17,7 @@ const ManageEvents = () => {
                 setjoindata(data.data)
             })
 
-    }, [user, useAxiosHook])
+    }, [user, axiousHook])
 
 
 

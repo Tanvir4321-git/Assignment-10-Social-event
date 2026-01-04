@@ -14,6 +14,14 @@ import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import Loading from "../Components/Loading";
 import ViewEvent from "../Components/ViewEvent";
 import UpdateEvent from "../Components/UpdateEvent";
+import About from "../Pages/About";
+import FeatureCardDetails from "../Components/FeatureCardDetails";
+import DashBoardLayout from "../Components/DashBoardLayout";
+import DashEventManage from "../Components/AllEvent/D-ManageEvent.jsx/DashEventManage";
+import DashboardCard from "../Components/DashboardCard";
+import MyProfile from "../Components/Profile";
+import TermsAndConditions from "../Components/TermsAndConditions";
+
 
 
 export const router = createBrowserRouter([
@@ -24,7 +32,13 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Home
+        Component: Home,
+        loader:()=>fetch('/data.json')
+      },
+      {
+      path:`/featureDetails/:id`,
+      loader:()=>fetch(`/data.json`),
+      Component: FeatureCardDetails
       },
 
       {
@@ -32,6 +46,10 @@ export const router = createBrowserRouter([
         loader: () => fetch('https://assignment-10-server-three-iota.vercel.app/upcomingEvent'),
         Component: UpcomingEvents,
         hydrateFallbackElement: <Loading></Loading>
+      },
+      {
+       path:'/about',
+       Component:About
       },
       {
         path: '/signup',
@@ -77,4 +95,40 @@ export const router = createBrowserRouter([
 
 
   },
+  {
+    path:'dashboard',
+    element:<PrivateRoute>
+      <DashBoardLayout></DashBoardLayout>
+    </PrivateRoute>,  
+    children:[
+      {
+       
+        index: true,
+        loader: () => fetch('https://assignment-10-server-three-iota.vercel.app/upcomingEvent'),
+      Component:DashboardCard
+      },
+      {
+        path:'manage-event',
+        element:<PrivateRoute>
+          <DashEventManage></DashEventManage>
+        </PrivateRoute>
+       
+      },
+      {
+        path:'joined-event',
+        Component:JoinEvents
+      },
+      {
+      path:'terms',
+      Component:  TermsAndConditions
+      },
+      {
+        path:'profile',
+        element:<PrivateRoute>
+          <MyProfile></MyProfile>
+        </PrivateRoute>
+     
+      }
+    ]
+  }
 ]);
