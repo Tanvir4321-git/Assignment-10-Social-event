@@ -10,7 +10,7 @@ The platform ensures smooth registration, secure data handling, and real-time up
 Overall, it offers a reliable, safe, and engaging space for users to connect with different activities.
 
 Live Demo:
-https://tubular-otter-764f4c.netlify.app/
+https:https://socialeventorganization.netlify.app/
 
 🛠️ Technologies Used
 
